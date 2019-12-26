@@ -246,6 +246,11 @@ EXCEPTION
 END crt_tab_test4_pk_bi;
 /
 
+EXECUTE crt_tab_test4;
+EXECUTE crt_tab_test4_pk;
+EXECUTE crt_tab_test4_bi;
+EXECUTE crt_tab_test4_pk_bi;
+
 PROMPT *****************************************************************************************
 PROMPT * Creating a model consuming time of querying count(*|1|id|flag) on 4 different tables  *
 PROMPT * 'TEST4', 'TEST4_PK', 'TEST4_BI' and 'TEST4_PK_BI', so that we're able to conveniently *
@@ -333,3 +338,61 @@ BEGIN
    END LOOP;
 END cnt_tab_spd_time_4;
 /
+
+EXECUTE cnt_tab_spd_time_4;
+
+SELECT * FROM cnt_spd_time_4;
+
+PROMPT =====================
+PROMPT spending time on 18.3
+PROMPT =====================
+
+-- SQL> SELECT * FROM cnt_spd_time_4;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 no_pk_bi   *       .299654 s
+--   50000000 no_pk_bi   1       .270704 s
+--   50000000 no_pk_bi   id      .334753 s
+--   50000000 no_pk_bi   flag    .300006 s
+--   50000000 only_pk    *       .370083 s
+--   50000000 only_pk    1       .330951 s
+--   50000000 only_pk    id      .343999 s
+--   50000000 only_pk    flag     .30551 s
+--   50000000 only_bi    *       .123682 s
+--   50000000 only_bi    1       .097201 s
+--   50000000 only_bi    id      .095966 s
+--   50000000 only_bi    flag    .096099 s
+--   50000000 both_pk_bi *       .113219 s
+--   50000000 both_pk_bi 1       .092135 s
+--   50000000 both_pk_bi id      .090911 s
+--   50000000 both_pk_bi flag    .089577 s
+-- 
+-- 16 rows selected.
+
+PROMPT =====================
+PROMPT spending time on 11.2
+PROMPT =====================
+
+-- SQL> SELECT * FROM cnt_spd_time_4;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME T
+-- ---------- -------------------- -------- ---------- -
+--   50000000 no_pk_bi             *          2.447162 s
+--   50000000 no_pk_bi             1          1.916814 s
+--   50000000 no_pk_bi             id         1.868669 s
+--   50000000 no_pk_bi             flag       1.723454 s
+--   50000000 only_pk              *          1.762631 s
+--   50000000 only_pk              1          1.762798 s
+--   50000000 only_pk              id         1.750415 s
+--   50000000 only_pk              flag       1.716138 s
+--   50000000 only_bi              *            .02717 s
+--   50000000 only_bi              1           .024324 s
+--   50000000 only_bi              id           .02363 s
+--   50000000 only_bi              flag        .024147 s
+--   50000000 both_pk_bi           *           .026919 s
+--   50000000 both_pk_bi           1           .024756 s
+--   50000000 both_pk_bi           id          .023722 s
+--   50000000 both_pk_bi           flag         .02362 s
+-- 
+-- 16 rows selected.
