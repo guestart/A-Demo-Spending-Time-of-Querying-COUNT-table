@@ -45,9 +45,8 @@ There has another one more important point being emphasized here, my Demo(s) has
     50000000 no_pk_bi   1       .787276 s
     50000000 no_pk_bi   id      1.28991 s
     50000000 no_pk_bi   flag   1.349071 s
-  
-  ![Demo1_18c_no_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_on_pk_bi.jpg)
   ```
+  ![Demo1_18c_no_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_on_pk_bi.jpg)
   ```sql
   -- Demo1_18c_only_pk:
   
@@ -61,6 +60,84 @@ There has another one more important point being emphasized here, my Demo(s) has
     50000000 only_pk    flag   1.741364 s
     ```
     ![Demo1_18c_only_pk](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_only_pk.jpg)
+    ```sql
+    -- Demo1_18c_only_bi:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'only_bi' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+    ---------- ---------- ---- ---------- -
+      50000000 only_bi    *       .023629 s
+      50000000 only_bi    1       .012871 s
+      50000000 only_bi    id     1.703165 s
+      50000000 only_bi    flag    .928293 s
+    ```
+    ![Demo1_18c_only_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_only_bi.jpg)
+    ```sql
+    -- Demo1_18c_both_pk_bi:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'both_pk_bi' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+    ---------- ---------- ---- ---------- -
+      50000000 both_pk_bi *       .019995 s
+      50000000 both_pk_bi 1       .012551 s
+      50000000 both_pk_bi id      .011584 s
+      50000000 both_pk_bi flag    .914173 s
+    ```
+    ![Demo1_18c_both_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_both_pk_bi.jpg)
+    ```sql
+    -- Demo1_18c_asterisk:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = '*' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+    ---------- ---------- ---- ---------- -
+      50000000 no_pk_bi   *      1.667343 s
+      50000000 only_pk    *      1.991366 s
+      50000000 only_bi    *       .023629 s
+      50000000 both_pk_bi *       .019995 s
+    ```
+    ![Demo1_18c_asterisk](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_asterisk.jpg)
+    ```sql
+    -- Demo1_18c_1:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = '1' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+    ---------- ---------- ---- ---------- -
+      50000000 no_pk_bi   1       .787276 s
+      50000000 only_pk    1      1.585741 s
+      50000000 only_bi    1       .012871 s
+      50000000 both_pk_bi 1       .012551 s
+    ```
+    ![Demo1_18c_1](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_1.jpg)
+    ```sql
+    -- Demo1_18c_id:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = 'id' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+    ---------- ---------- ---- ---------- -
+      50000000 no_pk_bi   id      1.28991 s
+      50000000 only_pk    id     1.595641 s
+      50000000 only_bi    id     1.703165 s
+      50000000 both_pk_bi id      .011584 s
+    ```
+    ![Demo1_18c_id](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_id.jpg)
+    ```sql
+    -- Demo1_18c_flag:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = 'flag' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+    ---------- ---------- ---- ---------- -
+      50000000 no_pk_bi   flag   1.349071 s
+      50000000 only_pk    flag   1.741364 s
+      50000000 only_bi    flag    .928293 s
+      50000000 both_pk_bi flag    .914173 s
+    ```
+    ![Demo1_18c_flag](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_flag.jpg)
     
 
 
