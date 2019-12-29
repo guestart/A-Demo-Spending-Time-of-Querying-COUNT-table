@@ -46,7 +46,21 @@ There has another one more important point being emphasized here, my Demo(s) has
     50000000 no_pk_bi   id      1.28991 s
     50000000 no_pk_bi   flag   1.349071 s
   ```
-
+  ![Demo1_18c_no_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_on_pk_bi.jpg)
+  ```sql
+  -- Demo1_18c_only_pk:
+  
+  SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'only_pk' ORDER BY ROWID;
+  
+     TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+  ---------- ---------- ---- ---------- -
+    50000000 only_pk    *      1.991366 s
+    50000000 only_pk    1      1.585741 s
+    50000000 only_pk    id     1.595641 s
+    50000000 only_pk    flag   1.741364 s
+    ```
+    ![Demo1_18c_only_pk](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_only_pk.jpg)
+    
 
 
 
