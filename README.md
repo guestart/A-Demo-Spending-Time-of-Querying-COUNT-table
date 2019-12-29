@@ -259,6 +259,7 @@ Here I assume you have all finished running all my 4 small pieces of Demo.
     50000000 only_bi              flag        1.18439 s
     50000000 both_pk_bi           flag       1.166561 s
   ```
+  ![Demo1_11g_flag](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/11.2/Demo1_11g_flag.jpg)
 
 - #### Demo2
   - ##### Oracle 18.3
@@ -274,7 +275,7 @@ Here I assume you have all finished running all my 4 small pieces of Demo.
     50000000 no_pk_bi   id      .394596 s
     50000000 no_pk_bi   flag    .401078 s
   ```
-  ![Demo2_18c_on_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo2/18.3/Demo2_18c_on_pk_bi.jpg)
+  ![Demo2_18c_no_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo2/18.3/Demo2_18c_on_pk_bi.jpg)
   
   ```sql
   -- Demo2_18c_only_pk:
