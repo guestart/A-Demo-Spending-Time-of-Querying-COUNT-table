@@ -45,8 +45,9 @@ There has another one more important point being emphasized here, my Demo(s) has
     50000000 no_pk_bi   1       .787276 s
     50000000 no_pk_bi   id      1.28991 s
     50000000 no_pk_bi   flag   1.349071 s
-  ```
+  
   ![Demo1_18c_no_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_on_pk_bi.jpg)
+  ```
   ```sql
   -- Demo1_18c_only_pk:
   
