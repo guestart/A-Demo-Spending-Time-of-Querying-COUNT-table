@@ -2,6 +2,8 @@ REM
 REM     Script:        spending_time_of_querying_cnt_table.sql
 REM     Author:        Quanwen Zhao
 REM     Dated:         Dec 24, 2019
+REM     Updated:       Dec 29, 2019
+REM                    adding some SQL statments queryig table 'cnt_spd_time' according to different 8 dimensions.
 REM
 REM     Last tested:
 REM             11.2.0.4
@@ -328,6 +330,94 @@ PROMPT =====================
 -- 
 -- 16 rows selected.
 
+-- Demo1_18c_no_pk_bi:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'no_pk_bi' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 no_pk_bi   *      1.667343 s
+--   50000000 no_pk_bi   1       .787276 s
+--   50000000 no_pk_bi   id      1.28991 s
+--   50000000 no_pk_bi   flag   1.349071 s
+-- 
+-- Demo1_18c_only_pk:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'only_pk' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 only_pk    *      1.991366 s
+--   50000000 only_pk    1      1.585741 s
+--   50000000 only_pk    id     1.595641 s
+--   50000000 only_pk    flag   1.741364 s
+-- 
+-- Demo1_18c_only_bi:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'only_bi' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 only_bi    *       .023629 s
+--   50000000 only_bi    1       .012871 s
+--   50000000 only_bi    id     1.703165 s
+--   50000000 only_bi    flag    .928293 s
+-- 
+-- Demo1_18c_both_pk_bi:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'both_pk_bi' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 both_pk_bi *       .019995 s
+--   50000000 both_pk_bi 1       .012551 s
+--   50000000 both_pk_bi id      .011584 s
+--   50000000 both_pk_bi flag    .914173 s
+-- 
+-- Demo1_18c_asterisk:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = '*' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 no_pk_bi   *      1.667343 s
+--   50000000 only_pk    *      1.991366 s
+--   50000000 only_bi    *       .023629 s
+--   50000000 both_pk_bi *       .019995 s
+-- 
+-- Demo1_18c_1:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = '1' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 no_pk_bi   1       .787276 s
+--   50000000 only_pk    1      1.585741 s
+--   50000000 only_bi    1       .012871 s
+--   50000000 both_pk_bi 1       .012551 s
+-- 
+-- Demo1_18c_id:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = 'id' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 no_pk_bi   id      1.28991 s
+--   50000000 only_pk    id     1.595641 s
+--   50000000 only_bi    id     1.703165 s
+--   50000000 both_pk_bi id      .011584 s
+-- 
+-- Demo1_18c_flag:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = 'flag' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK   CNT_   SPD_TIME T
+-- ---------- ---------- ---- ---------- -
+--   50000000 no_pk_bi   flag   1.349071 s
+--   50000000 only_pk    flag   1.741364 s
+--   50000000 only_bi    flag    .928293 s
+--   50000000 both_pk_bi flag    .914173 s
+
 PROMPT =====================
 PROMPT spending time on 11.2
 PROMPT =====================
@@ -354,3 +444,91 @@ PROMPT =====================
 --   50000000 both_pk_bi           flag       1.166561 s
 -- 
 -- 16 rows selected.
+
+-- Demo1_11g_no_pk_bi:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'no_pk_bi' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+-- ---------- -------------------- -------- ---------- --
+--   50000000 no_pk_bi             *          1.590687 s
+--   50000000 no_pk_bi             1          1.184074 s
+--   50000000 no_pk_bi             id         1.666568 s
+--   50000000 no_pk_bi             flag       1.770705 s
+-- 
+-- Demo1_11g_only_pk:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'only_pk' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+-- ---------- -------------------- -------- ---------- --
+--   50000000 only_pk              *          2.371787 s
+--   50000000 only_pk              1          2.075631 s
+--   50000000 only_pk              id         2.087134 s
+--   50000000 only_pk              flag       1.717795 s
+-- 
+-- Demo1_11g_only_bi:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'only_bi' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+-- ---------- -------------------- -------- ---------- --
+--   50000000 only_bi              *           .035909 s
+--   50000000 only_bi              1           .025202 s
+--   50000000 only_bi              id         2.201092 s
+--   50000000 only_bi              flag        1.18439 s
+-- 
+-- Demo1_11g_both_pk_bi:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'both_pk_bi' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+-- ---------- -------------------- -------- ---------- --
+--   50000000 both_pk_bi           *            .02406 s
+--   50000000 both_pk_bi           1            .01521 s
+--   50000000 both_pk_bi           id          .014518 s
+--   50000000 both_pk_bi           flag       1.166561 s
+-- 
+-- Demo1_11g_asterisk:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = '*' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+-- ---------- -------------------- -------- ---------- --
+--   50000000 no_pk_bi             *          1.590687 s
+--   50000000 only_pk              *          2.371787 s
+--   50000000 only_bi              *           .035909 s
+--   50000000 both_pk_bi           *            .02406 s
+-- 
+-- Demo1_11g_1:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = '1' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+-- ---------- -------------------- -------- ---------- --
+--   50000000 no_pk_bi             1          1.184074 s
+--   50000000 only_pk              1          2.075631 s
+--   50000000 only_bi              1           .025202 s
+--   50000000 both_pk_bi           1            .01521 s
+-- 
+-- Demo1_11g_id:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = 'id' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+-- ---------- -------------------- -------- ---------- --
+--   50000000 no_pk_bi             id         1.666568 s
+--   50000000 only_pk              id         2.087134 s
+--   50000000 only_bi              id         2.201092 s
+--   50000000 both_pk_bi           id          .014518 s
+-- 
+-- Demo1_11g_flag:
+-- 
+-- SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = 'flag' ORDER BY ROWID;
+-- 
+--    TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+-- ---------- -------------------- -------- ---------- --
+--   50000000 no_pk_bi             flag       1.770705 s
+--   50000000 only_pk              flag       1.717795 s
+--   50000000 only_bi              flag        1.18439 s
+--   50000000 both_pk_bi           flag       1.166561 s
