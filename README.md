@@ -387,7 +387,7 @@ Here I assume you have all finished running all my 4 small pieces of Demo.
     50000000 no_pk_bi             id         1.883006 s
     50000000 no_pk_bi             flag       1.847741 s
   ```
-  ![Demo2_11g_no_pk_bi]((https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo2/11.2/Demo2_11g_no_pk_bi.jpg)
+  ![Demo2_11g_no_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo2/11.2/Demo2_11g_no_pk_bi.jpg)
   
   ```sql
   -- Demo2_11g_only_pk:
