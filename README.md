@@ -47,6 +47,7 @@ There has another one more important point being emphasized here, my Demo(s) has
     50000000 no_pk_bi   flag   1.349071 s
   ```
   ![Demo1_18c_no_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_on_pk_bi.jpg)
+  
   ```sql
   -- Demo1_18c_only_pk:
   
@@ -60,6 +61,7 @@ There has another one more important point being emphasized here, my Demo(s) has
     50000000 only_pk    flag   1.741364 s
     ```
     ![Demo1_18c_only_pk](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_only_pk.jpg)
+    
     ```sql
     -- Demo1_18c_only_bi:
     
@@ -73,6 +75,7 @@ There has another one more important point being emphasized here, my Demo(s) has
       50000000 only_bi    flag    .928293 s
     ```
     ![Demo1_18c_only_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_only_bi.jpg)
+    
     ```sql
     -- Demo1_18c_both_pk_bi:
     
@@ -86,6 +89,7 @@ There has another one more important point being emphasized here, my Demo(s) has
       50000000 both_pk_bi flag    .914173 s
     ```
     ![Demo1_18c_both_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_both_pk_bi.jpg)
+    
     ```sql
     -- Demo1_18c_asterisk:
     
@@ -99,6 +103,7 @@ There has another one more important point being emphasized here, my Demo(s) has
       50000000 both_pk_bi *       .019995 s
     ```
     ![Demo1_18c_asterisk](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_asterisk.jpg)
+    
     ```sql
     -- Demo1_18c_1:
     
@@ -112,6 +117,7 @@ There has another one more important point being emphasized here, my Demo(s) has
       50000000 both_pk_bi 1       .012551 s
     ```
     ![Demo1_18c_1](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_1.jpg)
+    
     ```sql
     -- Demo1_18c_id:
     
@@ -125,6 +131,7 @@ There has another one more important point being emphasized here, my Demo(s) has
       50000000 both_pk_bi id      .011584 s
     ```
     ![Demo1_18c_id](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_id.jpg)
+    
     ```sql
     -- Demo1_18c_flag:
     
@@ -138,6 +145,121 @@ There has another one more important point being emphasized here, my Demo(s) has
       50000000 both_pk_bi flag    .914173 s
     ```
     ![Demo1_18c_flag](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/18.3/Demo1_18c_flag.jpg)
+    
+    - ##### Oracle 11.2
+    ```sql
+    -- Demo1_11g_no_pk_bi:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'no_pk_bi' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+    ---------- -------------------- -------- ---------- --
+      50000000 no_pk_bi             *          1.590687 s
+      50000000 no_pk_bi             1          1.184074 s
+      50000000 no_pk_bi             id         1.666568 s
+      50000000 no_pk_bi             flag       1.770705 s
+    ```
+    ![Demo1_11g_no_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/11.2/Demo1_11g_no_pk_bi.jpg)
+    
+    ```sql
+    -- Demo1_11g_only_pk:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'only_pk' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+    ---------- -------------------- -------- ---------- --
+      50000000 only_pk              *          2.371787 s
+      50000000 only_pk              1          2.075631 s
+      50000000 only_pk              id         2.087134 s
+      50000000 only_pk              flag       1.717795 s
+    ```
+    ![Demo1_11g_only_pk](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/11.2/Demo1_11g_only_pk.jpg)
+    
+    ```sql
+    -- Demo1_11g_only_bi:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'only_bi' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+    ---------- -------------------- -------- ---------- --
+      50000000 only_bi              *           .035909 s
+      50000000 only_bi              1           .025202 s
+      50000000 only_bi              id         2.201092 s
+      50000000 only_bi              flag        1.18439 s
+    ```
+    ![Demo1_11g_only_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/11.2/Demo1_11g_only_bi.jpg)
+    
+    ```sql
+    -- Demo1_11g_both_pk_bi:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE tab_mark = 'both_pk_bi' ORDER BY ROWID;
+
+       TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+    ---------- -------------------- -------- ---------- --
+      50000000 both_pk_bi           *            .02406 s
+      50000000 both_pk_bi           1            .01521 s
+      50000000 both_pk_bi           id          .014518 s
+      50000000 both_pk_bi           flag       1.166561 s
+    ```
+    ![Demo1_11g_both_pk_bi](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/11.2/Demo1_11g_both_pk_bi.jpg)
+    
+    ```sql
+    -- Demo1_11g_asterisk:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = '*' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+    ---------- -------------------- -------- ---------- --
+      50000000 no_pk_bi             *          1.590687 s
+      50000000 only_pk              *          2.371787 s
+      50000000 only_bi              *           .035909 s
+      50000000 both_pk_bi           *            .02406 s
+    ```
+    ![Demo1_11g_asterisk](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/11.2/Demo1_11g_asterisk.jpg)
+    
+    ```sql
+    -- Demo1_11g_1:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = '1' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+    ---------- -------------------- -------- ---------- --
+      50000000 no_pk_bi             1          1.184074 s
+      50000000 only_pk              1          2.075631 s
+      50000000 only_bi              1           .025202 s
+      50000000 both_pk_bi           1            .01521 s
+    ```
+    ![Demo1_11g_1](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/11.2/Demo1_11g_1.jpg)
+    
+    ```sql
+    -- Demo1_11g_id:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = 'id' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+    ---------- -------------------- -------- ---------- --
+      50000000 no_pk_bi             id         1.666568 s
+      50000000 only_pk              id         2.087134 s
+      50000000 only_bi              id         2.201092 s
+      50000000 both_pk_bi           id          .014518 s
+    ```
+    ![Demo1_11g_id](https://github.com/guestart/A-Demo-Spending-Time-of-Querying-COUNT-table/blob/master/picture/Demo1/11.2/Demo1_11g_id.jpg)
+    
+    ```sql
+    -- Demo1_11g_flag:
+    
+    SQL> SELECT * FROM cnt_spd_time WHERE cnt_mark = 'flag' ORDER BY ROWID;
+    
+       TAB_NUM TAB_MARK             CNT_MARK   SPD_TIME TI
+    ---------- -------------------- -------- ---------- --
+      50000000 no_pk_bi             flag       1.770705 s
+      50000000 only_pk              flag       1.717795 s
+      50000000 only_bi              flag        1.18439 s
+      50000000 both_pk_bi           flag       1.166561 s
+    ```
+  
+    
+    
     
 
 
