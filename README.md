@@ -10,12 +10,18 @@ The **ER Diagram** of those 3 tables previously cited is coming from the followi
 
 Exactly speaking, this demo should have been splitted into **4** `sections` (in other words, 4 small pieces of demo):
 
-(1) `Demo1` used to build test table (by using a very simple approach `CTAS`) with `NO PARALLEL`;
+- `Demo1` used to build test tables (by using a very simple approach `CTAS`) with `NO PARALLEL`;
 
-(2) `Demo2` is basically similar to `Demo1` and its only difference is at a table property `PARALLEL 10` when building mode of test table;
+- `Demo2` is basically similar to `Demo1` and its only difference is at a table property `PARALLEL 10` when building a mode of test tables;
 
-(3) `Demo3` usually builds test table (by **creating a table structure** firstly with `NO PARALLEL` and then **adding the appropriate check or index** to table, at last **inserting some test data** by using hint `APPEND`);
+- `Demo3` usually builds test tables (by **creating some table structures** firstly with `NO PARALLEL` and then **adding the appropriate check or index** to those tables, at last **inserting several test data** by using hint `APPEND`);
 
-(4) `Demo4` is also basically similar to `Demo3` and its only difference is also at a table property `PARALLEL 10`;
+- `Demo4` is also basically similar to `Demo3` and its only difference is also at a table property `PARALLEL 10`;
 
-Of course, all `Demos` previously mentioned use the same (3 tables) `ERD model`.
+Of course, all `Demos` previously mentioned use the same (**3 tables**) `ERD model`.
+
+- `Demo1` seems like this, `cnt_method`, `tab_stru` and `cnt_spd_time`;
+
+- `Demo2` 
+
+
